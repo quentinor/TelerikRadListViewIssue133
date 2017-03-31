@@ -1,10 +1,23 @@
-<ActionBar title="My App" class="action-bar">
+<ActionBar title="Telerik RadlistView Issue 133" class="action-bar">
 </ActionBar>
-<StackLayout class="page">
-    <ListView [items]="items" class="list-group">
-        <ng-template let-item="item">
-            <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
-                class="list-group-item"></Label>
-        </ng-template>
-    </ListView>
+<StackLayout height="100%" width="100%" *ngIf="dataItems" style="background-color: #cccccc">
+
+
+    <RadListView id="listView" [items]="dataItems">
+        <template tkListItemTemplate let-item="item">
+
+                <GridLayout rows="*" columns="70,*"  style="border-width:  0 0 1 0; border-color: #efefef;">
+                    <StackLayout height="50" width="50" margin="10" verticalAlignment="center" horizontalAlignment="center"
+                                 row="0" col="0">
+                        <Label [text]="item.id"></Label>
+                    </StackLayout>
+                    <StackLayout row="0" col="1" orientation="vertical" horizontalAlignment="left" verticalAlignment="center">
+                        <Label [text]="item.name" horizontalAlignment="left"
+                               style="font-size:16;font-weight: bold; color: #555555">
+                        </Label>
+                    </StackLayout>
+                </GridLayout>
+        </template>
+    </RadListView>
+
 </StackLayout>
